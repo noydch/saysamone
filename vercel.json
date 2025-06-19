@@ -5,7 +5,7 @@
   
     "functions": {
       "dist/server/entry-server.js": {
-        "runtime": "nodejs",
+       "runtime": "nodejs@20.x",
         "memory": 1024,
         "maxDuration": 10
       }
