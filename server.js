@@ -1,8 +1,6 @@
 import fs from 'node:fs/promises'
 import express from 'express'
 import { Transform } from 'node:stream'
-import { fileURLToPath } from 'node:url'
-import { dirname, resolve } from 'node:path'
 
 // Constants
 const isProduction = process.env.NODE_ENV === 'production'
@@ -10,12 +8,9 @@ const port = process.env.PORT || 5173
 const base = process.env.BASE || '/'
 const ABORT_DELAY = 10000
 
-// Get __dirname equivalent for ES Modules
-const __dirname = dirname(fileURLToPath(import.meta.url))
-
 // Cached production assets
 const templateHtml = isProduction
-  ? await fs.readFile(resolve(__dirname, './dist/client/index.html'), 'utf-8')
+  ? await fs.readFile('./dist/client/index.html', 'utf-8')
   : ''
 
 // Create http server
@@ -36,7 +31,7 @@ if (!isProduction) {
   const compression = (await import('compression')).default
   const sirv = (await import('sirv')).default
   app.use(compression())
-  app.use(base, sirv(resolve(__dirname, './dist/client'), { extensions: [] }))
+  app.use(base, sirv('./dist/client', { extensions: [] }))
 }
 
 // Serve HTML
@@ -50,12 +45,12 @@ app.use('*all', async (req, res) => {
     let render
     if (!isProduction) {
       // Always read fresh template in development
-      template = await fs.readFile(resolve(__dirname, './index.html'), 'utf-8')
+      template = await fs.readFile('./index.html', 'utf-8')
       template = await vite.transformIndexHtml(url, template)
       render = (await vite.ssrLoadModule('/src/entry-server.tsx')).render
     } else {
       template = templateHtml
-      render = (await import(resolve(__dirname, './dist/server/entry-server.js'))).render
+      render = (await import('./dist/server/entry-server.js')).render
     }
 
     let didError = false
