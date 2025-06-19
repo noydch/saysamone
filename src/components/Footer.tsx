@@ -8,16 +8,16 @@ const Footer = () => {
             <div className=" flex justify-between items-center">
                 <h2 className=" text-2xl">Everthing begins with an ides."</h2>
                 <div className=" flex items-center gap-4">
-                    <NavLink to={"/"} className=" w-[40px] h-[40px] rounded-full  bg-gradient-to-tr from-[#3b5998] to-[#1877f2] flex items-center justify-center text-white">
+                    <NavLink to={"https://www.facebook.com/saysamone.dch"} className=" w-[40px] h-[40px] rounded-full  bg-gradient-to-tr from-[#3b5998] to-[#1877f2] flex items-center justify-center text-white">
                     <FaFacebookF />
                     </NavLink>
-                    <NavLink to={"/"}  className=" w-[40px] h-[40px] rounded-full bg-gradient-to-tr from-[#feda75] via-[#fa7e1e] to-[#d62976] flex items-center justify-center text-white">
+                    <NavLink to={"https://www.facebook.com/saysamone.dch"}  className=" w-[40px] h-[40px] rounded-full bg-gradient-to-tr from-[#feda75] via-[#fa7e1e] to-[#d62976] flex items-center justify-center text-white">
                     <FaInstagram />
                     </NavLink>
-                    <NavLink to={"/"} className=" w-[40px] h-[40px] rounded-full bg-[#ffc118] flex items-center justify-center text-white">
+                    <NavLink to={"https://www.facebook.com/saysamone.dch"} className=" w-[40px] h-[40px] rounded-full bg-[#ffc118] flex items-center justify-center text-white">
                     <FaSnapchatGhost />
                     </NavLink>
-                    <NavLink to={"/"} className=" w-[40px] h-[40px] rounded-full bg-[#1DA1F2] flex items-center justify-center text-white">
+                    <NavLink to={"https://www.facebook.com/saysamone.dch"} className=" w-[40px] h-[40px] rounded-full bg-[#1DA1F2] flex items-center justify-center text-white">
                     <FaTwitter />
                     </NavLink>
                 </div>
@@ -42,25 +42,25 @@ const Footer = () => {
                     <div>
                         <h4 className=" text-[18px] mb-5">DESIGN</h4>
                         <ul className=" text-gray-400 flex flex-col gap-3">
-                            <li>Digital Branding</li>
-                            <li>E-Commerce Design</li>
-                            <li>UI/UX Design</li>
+                            <li className=" hover:text-white cursor-pointer duration-300">Digital Branding</li>
+                            <li className=" hover:text-white cursor-pointer duration-300">E-Commerce Design</li>
+                            <li className=" hover:text-white cursor-pointer duration-300">UI/UX Design</li>
                         </ul>
                     </div>
                     <div>
                         <h4 className=" text-[18px] mb-5">DEVELOP</h4>
                         <ul className=" text-gray-400 flex flex-col gap-3">
-                            <li>E-commerce development</li>
-                            <li>Web Development</li>
-                            <li>No-code development</li>
+                            <li className=" hover:text-white cursor-pointer duration-300">E-commerce development</li>
+                            <li className=" hover:text-white cursor-pointer duration-300">Web Development</li>
+                            <li className=" hover:text-white cursor-pointer duration-300">No-code development</li>
                         </ul>
                     </div>
                     <div>
                         <h4 className=" text-[18px] mb-5">GROW</h4>
                         <ul className=" text-gray-400 flex flex-col gap-3">
-                            <li>Research & Strategy</li>
-                            <li>Visibility & Awareness</li>
-                            <li>Campaign Management</li>
+                            <li className=" hover:text-white cursor-pointer duration-300">Research & Strategy</li>
+                            <li className=" hover:text-white cursor-pointer duration-300">Visibility & Awareness</li>
+                            <li className=" hover:text-white cursor-pointer duration-300">Campaign Management</li>
                         </ul>
                     </div>
                 </div>
@@ -69,9 +69,9 @@ const Footer = () => {
             <div className=" flex justify-between items-center mt-20 text-gray-400">
                 <p>stitle.development llc</p>
                 <div className=" flex items-center gap-5 text-[14px]">
-                    <p>TERMS</p>
-                    <p>PRIVACY</p>
-                    <p>COKKIES</p>
+                    <p className=" hover:text-white cursor-pointer duration-300">TERMS</p>
+                    <p className=" hover:text-white cursor-pointer duration-300">PRIVACY</p>
+                    <p className=" hover:text-white cursor-pointer duration-300">COKKIES</p>
                 </div>
             </div>
         </div>

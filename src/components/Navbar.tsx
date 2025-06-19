@@ -19,12 +19,12 @@ const navLinks: navlink[] = [
         path: "/service"
     },
     {
-        title: "Pricing",
-        path: "/pricing"
+        title: "Contact",
+        path: "/contact"
     },
     {
-        title: "Customers",
-        path: "/customers"
+        title: "Why stitle?",
+        path: "/whyme"
     }
 ]
 
