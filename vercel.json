@@ -5,7 +5,7 @@
 
   "functions": {
     "dist/server/entry-server.js": {
-      "runtime": "@vercel/node@3.0.0",
+      "runtime": "nodejs24.x",
       "memory": 1024,
       "maxDuration": 10
     }
