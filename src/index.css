@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+
+*{
+    font-family: 'Satoshi', sans-serif;
+}
+
+body{
+    color: white;
+    background-color: #1B1F24;
+}
+
+
+@layer components{
+    .container{
+        @apply px-36 mx-auto;
+    }
+}
+@layer pages{
+    .containers{
+        @apply px-48 mx-auto;
+    }
+}
