@@ -1,5 +1,5 @@
 import fs from 'node:fs/promises'
-import express from 'express'
+import express, { Request, Response } from 'express'
 import { Transform } from 'node:stream'
 import { fileURLToPath } from 'node:url'
 import { dirname, resolve } from 'node:path'
@@ -17,7 +17,7 @@ const templateHtml = isProduction
 
 const app = express()
 
-let vite
+let vite: any
 if (!isProduction) {
   const { createServer } = await import('vite')
   vite = await createServer({
@@ -33,12 +33,12 @@ if (!isProduction) {
   app.use(base, sirv(resolve(__dirname, './dist/client'), { extensions: [] }))
 }
 
-app.use('*all', async (req, res) => {
+app.use('*all', async (req: Request, res: Response) => {
   try {
     const url = req.originalUrl.replace(base, '')
 
-    let template
-    let render
+    let template: string
+    let render: (url: string, options: any) => { pipe: Function; abort: Function }
     if (!isProduction) {
       template = await fs.readFile(resolve(__dirname, './index.html'), 'utf-8')
       template = await vite.transformIndexHtml(url, template)
@@ -61,7 +61,7 @@ app.use('*all', async (req, res) => {
         res.set({ 'Content-Type': 'text/html' })
 
         const transformStream = new Transform({
-          transform(chunk, encoding, callback) {
+          transform(chunk: any, encoding: BufferEncoding, callback: Function) {
             res.write(chunk, encoding)
             callback()
           },
@@ -77,7 +77,7 @@ app.use('*all', async (req, res) => {
 
         pipe(transformStream)
       },
-      onError(error) {
+      onError(error: any) {
         didError = true
         console.error(error)
       },
@@ -86,13 +86,13 @@ app.use('*all', async (req, res) => {
     setTimeout(() => {
       abort()
     }, ABORT_DELAY)
-  } catch (e) {
-    vite?.ssrFixStacktrace(e)
-    console.log(e.stack)
-    res.status(500).end(e.stack)
+  } catch (error: any) {
+    vite?.ssrFixStacktrace(error)
+    console.error(error.stack)
+    res.status(500).end(error.stack)
   }
 })
 
 app.listen(port, () => {
   console.log(`Server started at http://localhost:${port}`)
-})
+}) 
