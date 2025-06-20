@@ -4,11 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "tsx server.ts",
-    "build": "npm run build:client && npm run build:server",
+    "dev": "node server",
+    "build": "npm run build",
     "build:client": "vite build --outDir dist/client",
     "build:server": "vite build --ssr src/entry-server.tsx --outDir dist/server",
-    "preview": "cross-env NODE_ENV=production tsx server.ts"
+    "preview": "cross-env NODE_ENV=production node server"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.10",
